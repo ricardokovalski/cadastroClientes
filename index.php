@@ -87,6 +87,5 @@ require_once('models/Catalogo.php');
         </div>
     </div>
 </div>
-
 </body>
 </html>
