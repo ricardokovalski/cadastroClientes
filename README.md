@@ -4,4 +4,4 @@
 
 Listagem de registros podendo ser ordenados de forma ASC e DESC.
 
-##### V 1.0 #####
+##### V 1.1 #####
