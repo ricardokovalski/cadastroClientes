@@ -49,19 +49,29 @@ require_once('models/Catalogo.php');
                 <br/>
                 <h1>Dados do Cliente</h1>
                 <div class="jumbotron">
-                    <h4>Nome: <strong><?php echo $clientes[$valor-1]->getNome(); ?></strong></h4>
-                    <?php
-                    if($clientes[$valor-1]->verificaSobrenome($clientes[$valor-1]->getSobrenome())){
-                    ?>
-                        <h4>Sobrenome: <strong><?php echo $clientes[$valor-1]->getSobrenome(); ?></strong></h4>    
-                    <?php
-                    }
-                    ?>                
-                    <h4>E-mail: <strong><?php echo $clientes[$valor-1]->getEmail(); ?></strong></h4>
-                    <h4>Nasciemnto: <strong><?php echo $clientes[$valor-1]->getDtNascimento(); ?></strong></h4>
-                    <h4>Telefone: <strong><?php echo $clientes[$valor-1]->getTelefone(); ?></strong></h4>
+
                     <h4>Tipo: <strong><?php echo $clientes[$valor-1]->retornaDescricaoTipoCliente($clientes[$valor-1]->getTipo()); ?></strong></h4>
                     <h4>Importância: <strong><?php echo $clientes[$valor-1]->getImportancia(); ?></strong></h4>
+                    
+                    <?php
+                    if($clientes[$valor-1]->getTipo() == 'F'){
+                    ?>
+                        <h4>Nome: <strong><?php echo $clientes[$valor-1]->getNome(); ?></strong></h4>
+                        <h4>Sobrenome: <strong><?php echo $clientes[$valor-1]->getSobrenome(); ?></strong></h4>
+                        <h4>CPF: <strong><?php echo $clientes[$valor-1]->getCpf(); ?></strong></h4>
+                        <h4>E-mail: <strong><?php echo $clientes[$valor-1]->getEmail(); ?></strong></h4>
+                        <h4>Nasciemnto: <strong><?php echo $clientes[$valor-1]->getDtNascimento(); ?></strong></h4>
+                        <h4>Telefone: <strong><?php echo $clientes[$valor-1]->getTelefone(); ?></strong></h4>
+                    <?php 
+                    } else if($clientes[$valor-1]->getTipo() == 'J'){
+                    ?>
+                        <h4>Empresa: <strong><?php echo $clientes[$valor-1]->getNome(); ?></strong></h4>
+                        <h4>CNPJ: <strong><?php echo $clientes[$valor-1]->getCnpj(); ?></strong></h4>
+                        <h4>Site: <strong><?php echo $clientes[$valor-1]->getEmail(); ?></strong></h4>
+                        <h4>Fax: <strong><?php echo $clientes[$valor-1]->getFax(); ?></strong></h4>
+                    <?php
+                    }
+                    ?>                    
                 </div>
 
                 <h1>Endereço de cobrança</h1>

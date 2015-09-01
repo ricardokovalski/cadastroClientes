@@ -1,49 +1,37 @@
 <?php
 require_once('Cliente.php');
-require_once('./interfaces/EndCobrancaInterface.php');
+require_once('./interfaces/ClienteJuridicoInterface.php');
 
-Class ClienteJuridico extends Cliente implements EndCobrancaInterface{
+Class ClienteJuridico extends Cliente implements ClienteJuridicoInterface{
 
-	
-	protected $cep;
-	protected $endereco;
-	protected $cidade;
-	protected $uf;
+	protected $nome;
+    protected $cnpj;
+    protected $email;
+    protected $fax;
+    
 
-	public function getCep(){
-		return $this->cep;
-	}
+    public function __construct($nome, $cnpj, $email, $fax){
 
-    public function getEndereco(){
-    	return $this->endereco;
+        $this->nome = $nome;
+        $this->cnpj = $cnpj;
+        $this->email = $email;
+        $this->fax = $fax;
     }
 
-	public function getCidade(){
-		return $this->cidade;
-	}
-
-    public function getUf(){
-    	return $this->uf;
+    public function getNome(){
+        return $this->nome;
     }
 
-    public function setCep($valor){
-    	$this->cep = $valor;
-    	return $this;
+    public function getCnpj(){
+        return $this->cnpj;
     }
 
-    public function setEndereco($valor){
-    	$this->endereco = $valor;
-    	return $this;
+    public function getEmail(){
+        return $this->email;
     }
 
-    public function setCidade($valor){
-    	$this->cidade = $valor;
-    	return $this;
-    }
-
-    public function setUf($valor){
-    	$this->uf = $valor;
-    	return $this;
+    public function getFax(){
+        return $this->fax;
     }
 
 }

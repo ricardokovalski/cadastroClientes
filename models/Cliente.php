@@ -1,65 +1,72 @@
 <?php
 
-require_once('./interfaces/ClienteInterface.php');
+require_once('./interfaces/EndCobrancaInterface.php');
 
-class Cliente implements ClienteInterface{
+class Cliente implements EndCobrancaInterface{
 
-	protected $nome;
-	protected $sobrenome;
-	protected $email;
-	protected $dt_nascimento;
-	protected $telefone;
+	protected $cep;
+	protected $endereco;
+	protected $cidade;
+	protected $uf;
 	protected $tipo;
 	protected $importancia;
-	
 
-	public function __construct($nome, $sobrenome, $email, $dt_nascimento, $telefone, $tipo, $importancia){
-
-		$this->nome = $nome;
-		$this->sobrenome = $sobrenome;
-		$this->email = $email;
-		$this->dt_nascimento = $dt_nascimento;
-		$this->telefone = $telefone;
-		$this->tipo = $tipo;
-		$this->importancia = $importancia;
+	public function getCep(){
+		return $this->cep;
 	}
 
+    public function getEndereco(){
+    	return $this->endereco;
+    }
 
-	public function getNome(){
-		return $this->nome;
+	public function getCidade(){
+		return $this->cidade;
 	}
 
-	public function getSobrenome(){
-		return $this->sobrenome;
-	}
+    public function getUf(){
+    	return $this->uf;
+    }
 
-	public function getEmail(){
-		return $this->email;
-	}
+    public function getTipo(){
+        return $this->tipo;
+    }
 
-	public function getDtNascimento(){
-		return $this->dt_nascimento;
-	}
+    public function getImportancia(){
+        return $this->importancia;
+    }
 
-	public function getTelefone(){
-		return $this->telefone;
-	}
+    public function setCep($valor){
+    	$this->cep = $valor;
+        return $this;
+    }
 
-	public function getTipo(){
-		return $this->tipo;
-	}
+    public function setEndereco($valor){
+    	$this->endereco = $valor;
+        return $this;
+    }
 
-	public function getImportancia(){
-		return $this->importancia;
-	}
+    public function setCidade($valor){
+    	$this->cidade = $valor;
+        return $this;
+    }
 
-	public function retornaDescricaoTipoCliente($valor){
-		if($valor == 'J') return 'Pessoa Jurídica';
-		else return 'Pessoa Física';
-	}
+    public function setUf($valor){
+    	$this->uf = $valor;
+        return $this;
+    }
 
-	public function verificaSobrenome($valor){
-		if(is_null($valor)) return false;
-		return true;
-	}
+    public function setTipo($valor){
+    	$this->tipo = $valor;
+    	return $this;
+    }
+
+    public function setImportancia($valor){
+    	$this->importancia = $valor;
+    	return $this;
+    }
+
+    public function retornaDescricaoTipoCliente($valor){
+        if($valor == 'F') return 'Pessoa Física';
+        return 'Pessoa Jurídica';
+    }
 }

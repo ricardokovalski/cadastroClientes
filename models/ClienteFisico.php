@@ -1,48 +1,51 @@
 <?php
 require_once('Cliente.php');
-require_once('./interfaces/EndCobrancaInterface.php');
+require_once('./interfaces/ClienteFisicoInterface.php');
 
-Class ClienteFisico extends Cliente implements EndCobrancaInterface{
+Class ClienteFisico extends Cliente implements ClienteFisicoInterface{
 
-	protected $cep;
-	protected $endereco;
-	protected $cidade;
-	protected $uf;
+	protected $nome;
+    protected $sobrenome;
+    protected $cpf;
+    protected $email;
+    protected $dt_nascimento;
+    protected $telefone;
+    
 
-	public function getCep(){
-		return $this->cep;
-	}
+    public function __construct($nome, $sobrenome, $cpf, $email, $dt_nascimento, $telefone){
 
-    public function getEndereco(){
-    	return $this->endereco;
+        $this->nome = $nome;
+        $this->sobrenome = $sobrenome;
+        $this->cpf = $cpf;
+        $this->email = $email;
+        $this->dt_nascimento = $dt_nascimento;
+        $this->telefone = $telefone;
     }
 
-	public function getCidade(){
-		return $this->cidade;
-	}
 
-    public function getUf(){
-    	return $this->uf;
+    public function getNome(){
+        return $this->nome;
     }
 
-    public function setCep($valor){
-    	$this->cep = $valor;
-        return $this;
+    public function getSobrenome(){
+        return $this->sobrenome;
     }
 
-    public function setEndereco($valor){
-    	$this->endereco = $valor;
-        return $this;
+    public function getCpf(){
+        return $this->cpf;
     }
 
-    public function setCidade($valor){
-    	$this->cidade = $valor;
-        return $this;
+    public function getEmail(){
+        return $this->email;
     }
 
-    public function setUf($valor){
-    	$this->uf = $valor;
-        return $this;
+    public function getDtNascimento(){
+        return $this->dt_nascimento;
     }
+
+    public function getTelefone(){
+        return $this->telefone;
+    }
+
 	
 }
