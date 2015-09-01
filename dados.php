@@ -35,9 +35,6 @@ require_once('models/Catalogo.php');
 
     <div class="container">
         <div class="page-header">
-            <br/>
-            <h1>Dados do Cliente</h1>
-            <div class="jumbotron">
             <?php
             $catalogo = new Catalogo();
 
@@ -49,17 +46,36 @@ require_once('models/Catalogo.php');
 
                 foreach ($codigo as $key => $valor) {
             ?>
-                <h4>Nome: <strong><?php echo $clientes[$valor-1]->getNome(); ?></strong></h4>
-                <h4>E-mail: <strong><?php echo $clientes[$valor-1]->getEmail(); ?></strong></h4>
-                <h4>Nasciemnto: <strong><?php echo $clientes[$valor-1]->getDtNascimento(); ?></strong></h4>
-                <h4>Telefone: <strong><?php echo $clientes[$valor-1]->getTelefone(); ?></strong></h4>
-                <h4>UF: <strong><?php echo $clientes[$valor-1]->getEstado(); ?></strong></h4>
+                <br/>
+                <h1>Dados do Cliente</h1>
+                <div class="jumbotron">
+                    <h4>Nome: <strong><?php echo $clientes[$valor-1]->getNome(); ?></strong></h4>
+                    <?php
+                    if($clientes[$valor-1]->verificaSobrenome($clientes[$valor-1]->getSobrenome())){
+                    ?>
+                        <h4>Sobrenome: <strong><?php echo $clientes[$valor-1]->getSobrenome(); ?></strong></h4>    
+                    <?php
+                    }
+                    ?>                
+                    <h4>E-mail: <strong><?php echo $clientes[$valor-1]->getEmail(); ?></strong></h4>
+                    <h4>Nasciemnto: <strong><?php echo $clientes[$valor-1]->getDtNascimento(); ?></strong></h4>
+                    <h4>Telefone: <strong><?php echo $clientes[$valor-1]->getTelefone(); ?></strong></h4>
+                    <h4>Tipo: <strong><?php echo $clientes[$valor-1]->retornaDescricaoTipoCliente($clientes[$valor-1]->getTipo()); ?></strong></h4>
+                    <h4>Importância: <strong><?php echo $clientes[$valor-1]->getImportancia(); ?></strong></h4>
+                </div>
+
+                <h1>Endereço de cobrança</h1>
+                <div class="jumbotron">
+                    <h4>Cep: <strong><?php echo $clientes[$valor-1]->getCep(); ?></strong></h4>
+                    <h4>Endereço: <strong><?php echo $clientes[$valor-1]->getEndereco(); ?></strong></h4>
+                    <h4>Cidade: <strong><?php echo $clientes[$valor-1]->getCidade(); ?></strong></h4>
+                    <h4>UF: <strong><?php echo $clientes[$valor-1]->getUf(); ?></strong></h4>
+                    <a href="index.php"><button class="btn btn-info">Voltar</button></a>
+                </div>
             <?php   
                 }                
             }
             ?>
-            <a href="index.php"><button class="btn btn-info">Voltar</button></a>
-            
         </div>
     </div>
 

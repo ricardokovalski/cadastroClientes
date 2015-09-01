@@ -38,7 +38,7 @@ require_once('models/Catalogo.php');
             <?php
             $catalogo = new Catalogo();
             $clientes = $catalogo->getClientes();
-
+            
             if(isset($_POST['ascendente'])){
                 ksort($clientes);
             }else if(isset($_POST['descendente'])){
@@ -52,6 +52,8 @@ require_once('models/Catalogo.php');
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Nascimento</th>
+                    <th>Tipo de cliente</th>
+                    <th>Importância</th>
                     <th>Visualizar</th>
                 </thead>
                 <tbody>
@@ -63,6 +65,8 @@ require_once('models/Catalogo.php');
                             <td><?php echo $cliente->getNome(); ?></td>
                             <td><?php echo $cliente->getEmail(); ?></td>
                             <td><?php echo $cliente->getDtNascimento(); ?></td>
+                            <td><?php echo $cliente->retornaDescricaoTipoCliente($cliente->getTipo()); ?></td>
+                            <td><?php echo $cliente->getImportancia(); ?></td>
                             <td><a href="dados.php?<?php echo $key+1; ?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
                         </tr>
                     <?php

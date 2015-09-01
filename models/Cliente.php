@@ -1,25 +1,36 @@
 <?php
 
-class Cliente{
+require_once('./interfaces/ClienteInterface.php');
 
-	public $nome;
-	public $email;
-	public $dt_nascimento;
-	public $telefone;
-	public $estado;
+class Cliente implements ClienteInterface{
 
-	public function __construct($nome, $email, $dt_nascimento, $telefone, $estado){
+	protected $nome;
+	protected $sobrenome;
+	protected $email;
+	protected $dt_nascimento;
+	protected $telefone;
+	protected $tipo;
+	protected $importancia;
+	
+
+	public function __construct($nome, $sobrenome, $email, $dt_nascimento, $telefone, $tipo, $importancia){
 
 		$this->nome = $nome;
+		$this->sobrenome = $sobrenome;
 		$this->email = $email;
 		$this->dt_nascimento = $dt_nascimento;
 		$this->telefone = $telefone;
-		$this->estado = $estado;
+		$this->tipo = $tipo;
+		$this->importancia = $importancia;
 	}
 
 
 	public function getNome(){
 		return $this->nome;
+	}
+
+	public function getSobrenome(){
+		return $this->sobrenome;
 	}
 
 	public function getEmail(){
@@ -34,8 +45,21 @@ class Cliente{
 		return $this->telefone;
 	}
 
-	public function getEstado(){
-		return $this->estado;
+	public function getTipo(){
+		return $this->tipo;
 	}
 
+	public function getImportancia(){
+		return $this->importancia;
+	}
+
+	public function retornaDescricaoTipoCliente($valor){
+		if($valor == 'J') return 'Pessoa Jurídica';
+		else return 'Pessoa Física';
+	}
+
+	public function verificaSobrenome($valor){
+		if(is_null($valor)) return false;
+		return true;
+	}
 }
