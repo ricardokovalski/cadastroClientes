@@ -27,7 +27,7 @@
                             <td><?php echo $cliente->getEmail(); ?></td>                            
                             <td><?php echo $cliente->retornaDescricaoTipoCliente($cliente->getTipo()); ?></td>
                             <td><?php echo $cliente->getImportancia(); ?></td>
-                            <td><a href="dados.php?<?php echo $key+1; ?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
+                            <td><a href="<?php echo '../src/RicardoKovalski/applications/pages/dados.php?'; ?><?php echo $key+1; ?>"><button class="btn btn-info " type="submit" name="visualizar" >Visualizar</button></a></td>
                         </tr>
                     <?php
                     }

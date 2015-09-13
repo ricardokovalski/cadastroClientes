@@ -1,0 +1,11 @@
+{
+    "authors" : [{
+	"name" : "Ricardo Kovalski",
+	"email" : "ricardokovalskicruz@gmail.com"
+    }],
+    "autoload" : {
+	"psr-0" : {
+        "" : "src/"
+        }
+    }
+}

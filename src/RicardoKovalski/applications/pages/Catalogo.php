@@ -1,7 +1,7 @@
 <?php
 
-use \RicardoKovalski\classes\cliente\types\ClienteJuridico as ClienteJuridico;
-use \RicardoKovalski\classes\cliente\types\ClienteFisico as ClienteFisico;
+use \RicardoKovalski\classes\cliente\types\ClienteJuridico;
+use \RicardoKovalski\classes\cliente\types\ClienteFisico;
 
 $clientes = new ArrayObject();
 
