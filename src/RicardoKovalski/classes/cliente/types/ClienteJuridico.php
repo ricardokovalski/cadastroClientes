@@ -2,33 +2,23 @@
 
 namespace RicardoKovalski\classes\cliente\types;
 
-use \RicardoKovalski\classes\cliente\interfaces\ClienteJuridicoInterface;
+Class ClienteJuridico extends Cliente{
 
-Class ClienteJuridico extends Cliente implements ClienteJuridicoInterface{
+	protected $cnpj;
+    protected $fax;
 
-	protected $nome;
-    protected $cnpj;
-    protected $email;
-    protected $fax;    
-
-    function __construct($nome, $cnpj, $email, $fax){
-
-        $this->nome = $nome;
+    public function setCnpj($cnpj){
         $this->cnpj = $cnpj;
-        $this->email = $email;
-        $this->fax = $fax;
+        return $this;
     }
 
-    public function getNome(){
-        return $this->nome;
+    public function setFax($fax){
+        $this->fax = $fax;
+        return $this;
     }
 
     public function getCnpj(){
         return $this->cnpj;
-    }
-
-    public function getEmail(){
-        return $this->email;
     }
 
     public function getFax(){
